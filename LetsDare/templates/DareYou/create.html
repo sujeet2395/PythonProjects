@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static %}
+
+<body>
+{% block content %}
+<div class="container mainbox">
+<p class="maintitle maintitlesize">Creating Dare</p>
+<form id="formUser" method="post" action="/dareyou/select_un/" onsubmit="return validate('formUser','userName');">
+{% csrf_token %}
+<label class="mainlabel mainlabelsize">Enter Your Name :</label>
+<input id="userName" name="userName"><br/>
+<span id="userNameMsg"></span><br/>
+<button class="btn btn-primary btn-lg active" style="margin-top: 15px;" role="button" aria-pressed="true" type="submit">Start</button>
+</form>
+</div>
+<script type="text/javascript" src="{% static 'DareYou/js/myjs.js' %}"></script>
+{% endblock %}
+</body>

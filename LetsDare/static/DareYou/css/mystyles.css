@@ -1,0 +1,42 @@
+.footer {
+	position: bottom;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   background-color: blue;
+   color: white;
+   text-align: center;
+   padding: 2px;
+}
+.mainbox{
+	text-align: center;
+	padding: 10px;
+}
+.maintitle{
+	color: red;
+}
+.mainlabel{
+	color:#fa8130;
+}
+.maintitlesize{
+	font-size:2.5rem;
+}
+.mainlabelsize{
+	font-size:1.25rem;
+}
+.questionbox{
+	margin: 5px auto 5px auto;
+	padding: 10px;
+	background-color: #ffffce;
+	color: black;
+	text-align: center;
+	font-size: 1rem;
+	width: 50%;
+	border: 2px solid #fc8c67;
+}
+.slection_btn{
+	background-color:#e7e7e7;	
+}
+.removal_btn{
+	background-color:#fc8c67;	
+}

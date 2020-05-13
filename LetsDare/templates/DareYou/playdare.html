@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="container mainbox">
+<p class="maintitle maintitlesize">Lets play Dare.</p>
+<img src="{% static '/DareYou/img/friendship.png' %}" alt="friendship" width="130px"	height="130Px" />
+<div style="margin-top: 50px"></div>
+
+{%	for q_id, q_quest in selected_q_list.items %}
+<div class="questionbox">
+<div style="text-align:left;">{{q_id}}<span>.)</span>&nbsp{{q_quest}}</div>
+<div style="margin-top:25px;"></div>
+<input type="text" class="form-control input-sm" />
+</div>
+{% endfor %}
+
+<p class="maintitle mainlabelsize">Share screenshot of answers list with dare creator {{un}}</p>
+</div>
+{% endblock %}
