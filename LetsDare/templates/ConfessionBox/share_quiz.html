@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{%load static %}
+{% block content %}
+<div class="container mainbox">
+<p class="maintitle maintitlesize">Now, Share your Confession Box</p>
+<img src="{% static '/DareYou/img/friendship.png' %}" alt="friendship" width="130px"	height="130Px" />
+<div style="margin-top: 50px"></div>
+
+{%	for q_id, q_quest in selected_q_list.items %}
+<div class="questionbox">
+<div style="text-align:left;">{{q_id}}<span>.)</span>&nbsp{{q_quest}}</div>
+</div>
+{% endfor %}
+
+<p class="maintitle mainlabelsize">Your Confession Box</p>
+<h5>{{cnf_dare_url}}</h5>
+<a href='{{cnf_dare_url}}'>Share this Confession Box</a></br>
+<a href='{{result_view_url}}'>Result of Confession Box</a>
+</div>
+{% endblock %}

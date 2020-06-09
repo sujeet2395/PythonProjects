@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="container mainbox">
+	<p class="maintitle maintitlesize">Lets play Confession Box.</p>
+	<img src="{% static '/DareYou/img/friendship.png' %}" alt="friendship"
+		width="130px" height="130Px" />
+	<div style="margin-top: 50px"></div>
+	<p class="mainlabel mainlabelsize">Confession Box of {{creator.user_name}}</p>
+
+	<form action="/cnfbx/result/{{quiz_id}}/" method="post" onsubmit="return val_cnfbx_playing({{selected_q_list.items|length}})">
+		{% csrf_token %}
+		<div>
+			{% for q_id, q_quest in selected_q_list.items %}
+			<div class="questionbox">
+				<div style="text-align: left;">
+					<p>{{q_id}}<span>.)</span>&nbsp{{q_quest}}</p>
+				</div>
+				<div style="margin-top: 25px;"></div>
+				<div>
+					<input type="text" id="ans{{forloop.counter}}" name="ans{{forloop.counter}}" class="form-control input-sm">
+					</br>
+					<span id="ans_err_msg{{forloop.counter}}" name="ans{{forloop.counter}}" style="color: red;"></span>
+				</div>
+			</div>
+			{% endfor %} <input type="submit" value="Submit">
+		</div>
+	</form>
+	<script type="text/javascript" src="{% static 'ConfessionBox/js/cnfbx.js' %}"></script>
+	<script type="text/javascript">
+        $(document).ready(clearstorage({{selected_q_list.items|length}}));
+    </script>
+</div>
+{% endblock %}

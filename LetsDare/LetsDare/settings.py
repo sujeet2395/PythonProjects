@@ -32,6 +32,7 @@ ALLOWED_HOSTS = ['*']
 
 INSTALLED_APPS = [
     'DareYou',
+    'ConfessionBox',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -57,7 +58,7 @@ ROOT_URLCONF = 'LetsDare.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR,'templates/DareYou')],
+        'DIRS': [os.path.join(BASE_DIR,'templates/DareYou'), os.path.join(BASE_DIR,'templates/ConfessionBox')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

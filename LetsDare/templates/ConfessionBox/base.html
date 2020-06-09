@@ -1,0 +1,52 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Lets Dare</title>
+<link rel="stylesheet" type="text/css" href="{% static 'DareYou/css/css_bootstrap/bootstrap.css' %}"/>
+<link rel="stylesheet" type="text/css" href="{% static 'DareYou/css/mystyles.css' %}"/>
+<link rel="stylesheet" type="text/css" href="{% static 'ConfessionBox/css/cb_stylesheet.css' %}"/>
+<link rel="stylesheet" type="text/css" href="{% static 'DareYou/css/css_bootstrap/bootstrap-grid.css' %}"/>
+<link rel="stylesheet" type="text/css" href="{% static 'DareYou/css/css_bootstrap/bootstrap-reboot.css' %}"/>
+<script type="text/javascript" src="{% static 'DareYou/js/jquery.js' %}"></script>
+<script type="text/javascript" src="{% static 'DareYou/js/js_bootstrap/bootstrap.js' %}"></script>
+</head>
+<body>
+<!--Main Navigation-->
+<header>
+
+  <nav class="navbar navbar-expand-md navbar-dark bg-primary" >
+  <a class="navbar-brand" href="#">Lets Dare</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">About Us</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Contact Us</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+</header>
+<!--Main Navigation-->
+<div>
+{% block content %}
+<h1>Block Content</h1>
+{% endblock %}
+</div>
+ <footer class="footer">
+   <div class="container text-center">
+     <small>Copyright &copy; Lets Dare</small>
+   </div>
+ </footer>
+</body>
+</html>

@@ -20,5 +20,6 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('dareyou/', include('DareYou.urls')),
-    path('admin/', admin.site.urls)
+    path('cnfbx/', include('ConfessionBox.urls')),
+    path('admin/', admin.site.urls),
 ]+static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="container mainbox">
+	<div class="maintitle">
+		<p class="maintitlesize">What your Friends</p>
+		<p class="mainlabelsize">know about you?</p>
+	</div>
+	<img src="{% static '/DareYou/img/friendship.png' %}" alt="friendship" width="130px" height="130Px" />
+	<div style="margin-top: 100px"></div>
+	<div class="mainlabel">
+		<p class="maintitlesize">Create Confession Box</p>
+		<p class="mainlabelsize">and check thinking of your friends</p><br />
+	</div>
+	<a href="cb_create/" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Create Confession Box</a>
+</div>
+{% endblock %}

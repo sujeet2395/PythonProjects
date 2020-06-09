@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="container mainbox">
+    <p class="maintitle maintitlesize">Creating Confession Box</p>
+    <form id="formUser" method="post" action="/cnfbx/cb_quiz_quest/" onsubmit="return validate('formUser','userName');">
+        {% csrf_token %}
+        <label class="mainlabel mainlabelsize">Enter Your Name :</label>
+        <input id="userName" name="userName" value="{{un}}"><br />
+        <span id="userNameMsg"></span><br />
+        <button class="btn btn-primary btn-lg active" style="margin-top: 15px;" role="button" aria-pressed="true"
+            type="submit">Start</button>
+    </form>
+    {% if is_creator %}
+    <a href='{{user_cnfbox_url}}'>See your previous confession box</a>
+    {% endif %}
+</div>
+<script type="text/javascript" src="{% static 'DareYou/js/myjs.js' %}"></script>
+{% endblock %}
