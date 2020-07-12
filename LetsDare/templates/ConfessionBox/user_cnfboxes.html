@@ -1,26 +1,40 @@
-{% extends 'base.html' %}
+{% extends 'cb_base.html' %}
 {%load static %}
-{% block content %}
-<div class="container mainbox">
-<p class="maintitle maintitlesize">Now, Share your Confession Box</p>
-<img src="{% static '/DareYou/img/friendship.png' %}" alt="friendship" width="130px"	height="130Px" />
-<div style="margin-top: 50px"></div>
-
-<p class="maintitle maintitlesize">{{un}}'s Confession Box</p>
-{% for cnfbox_items in cnfboxes %}
-	{%	for q_id, q_quest in cnfbox_items.selected_q_list.items %}
-	<div class="questionbox">
-	<div style="text-align:left;">{{q_id}}<span>.)</span>&nbsp{{q_quest}}</div>
+{% block cnfbx %}
+<div class="container-fuild mainbox">
+	<p class="maintitle maintitlesize">Now, Share your Confession Box</p>
+	<img src="{% static '/DareYou/img/friendship.png' %}" alt="friendship" class="rounded" width="130px"	height="130Px" />
+	<div class="mb-5"></div>
+	<div class="row">
+		<div class="col-lg-3 col-sm-2"></div>
+		<div class="col-lg-6 col-sm-8">
+			<p class="maintitle maintitlesize">{{un}}'s Confession Box</p>
+			{% for cnfbox_items in cnfboxes %}
+				<div class="cnfbx_container rounded">
+					{%	for q_id, q_quest in cnfbox_items.selected_q_list.items %}
+						<div class="questionbox">
+						<div>{{q_id}}<span>.)</span>&nbsp{{q_quest}}</div>
+						</div>
+					{% endfor %}
+					<p class="mainlabel mainlabelsize">Your Confession Box</p>
+					<h6>{{cnfbox_items.cnf_dare_url}}</h6>
+					<h6><a href="{{cnfbox_items.cnf_dare_url}}">Share this Confession Box</a></h6>
+					<h6><a href="{{cnfbox_items.result_view_url}}">Result of Confession Box</a></h6>
+					<div class="mb-2"></div>
+				</div>
+				<div class="mb-3"></div>
+			{% endfor %}
+			{% if cnfboxes|length <= 0 %}
+				<div class="cnfbx_container rounded">
+						<div class="mainlabel mainlabelsize p-2">Confession Box not found.</div>
+				</div>
+				<div class="mb-3"></div>
+			{% endif %}
+			{% if is_player %}
+			<h6><a href="/cnfbx/user_played_cnfbox/{{user_id}}/">See your results of Confession Box</a></h6>
+			{% endif %}
+		</div>
+		<div class="col-lg-3 col-sm-2"></div>
 	</div>
-	{% endfor %}
-	<p class="maintitle mainlabelsize">Your Confession Box</p>
-	<h6>{{cnfbox_items.cnf_dare_url}}</h6>
-	<a href='{{cnfbox_items.cnf_dare_url}}'>Share this Confession Box</a></br>
-	<a href='{{cnfbox_items.result_view_url}}'>Result of Confession Box</a>
-	<div style='margin:10px;'></div>
-{% endfor %}
-{% if is_player %}
-<a href="/cnfbx/user_played_cnfbox/{{user_id}}/">See your results of confession box</a>
-{% endif %}
 </div>
 {% endblock %}

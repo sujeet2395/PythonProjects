@@ -1,19 +1,44 @@
-{% extends 'base.html' %}
+{% extends 'cb_base.html' %}
 {% load static %}
-{% block content %}
-<div class="container mainbox">
-<p class="maintitle maintitlesize">Result</p>
-<img src="{% static '/DareYou/img/friendship.png' %}" alt="friendship" width="130px"	height="130Px" />
-<div style="margin-top: 50px"></div>
-<p class="mainlabel mainlabelsize">Confession Box of {{creator_un}}</p>
-{% for res_item in result_list %}
-	</br>
-	<h5>played user's name {{res_item.player_un}}</h5></br>
-	{% for quest_id, quest_ans_d in res_item.ans_of_res.items %}
-			<h5>{{quest_id}}<span>.)</span> {{quest_ans_d.q_at_id}}</h5></br>
-			<h5>{{quest_ans_d.ans}}</h5></br>
-	{% endfor %}
-{% endfor %}
-<a href='/cnfbx/'>Create Confession Box</a>
+{% block cnfbx %}
+<div class="container-fuild mainbox">
+	<p class="maintitle maintitlesize">Result</p>
+	<img src="{% static '/DareYou/img/friendship.png' %}" class="rounded" alt="friendship" width="130px"	height="130Px" />
+	<div class="mb-5"></div>
+	<div class="row">
+	<div class="col-lg-3 col-sm-2"></div>
+	<div class="col-lg-6 col-sm-8">
+		<p class="maintitle maintitlesize">{{creator_un}}'s Confession Box</p>
+		<div id="accordion">
+		{% for res_item in result_list %}
+			<div class="card cnfbx_container">
+				<div class="card-header p-1">
+				<a class="card-link mainlabel mainlabelsize" data-toggle="collapse" href="#collapse{{forloop.counter}}">{{res_item.player_un}} played</a>
+				</div>
+				<div id="collapse{{forloop.counter}}" class="collapse hide" data-parent="#accordion">
+					<div class="card-body p-2">
+					{% for quest_id, quest_ans_d in res_item.ans_of_res.items %}
+						<div class="questionbox">
+							<div><p>{{quest_id}}<span>.)</span> {{quest_ans_d.q_at_id}}</p></div>
+							<div class="mb-3"></div>
+							<div class="ansbox">{{quest_ans_d.ans}}</div>
+						</div>
+					{% endfor %}
+					</div>
+				</div>
+			</div>
+			<div class="mb-3"></div>
+		{% endfor %}
+		</div>
+		{% if result_list|length <= 0 %}
+			<div class="cnfbx_container rounded">
+					<div class="mainlabel mainlabelsize p-2">No results found.</div>
+			</div>
+			<div class="mb-3"></div>
+		{% endif %}
+	</div>
+	<div class="col-lg-3 col-sm-2"></div>
+	</div>
+	<h5><a href='/cnfbx/'>Create Confession Box</a></h5>
 </div>
 {% endblock %}

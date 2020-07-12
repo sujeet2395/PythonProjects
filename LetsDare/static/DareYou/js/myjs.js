@@ -48,7 +48,7 @@ function selected(count, item)
 
 function validation(count){
 	if(localStorage.getItem("first")==null){
-		document.getElementById("error_msg").innerHTML="no data";
+		document.getElementById("error_msg").innerHTML="Please seclect question.";
 		document.getElementById("error_msg").style.color="red";
 		return false
 	}
@@ -77,7 +77,7 @@ function validation(count){
 			form.submit()
 			return true
 		}else{
-			document.getElementById("error_msg").innerHTML="please select question."
+			document.getElementById("error_msg").innerHTML="Please select question."
 			document.getElementById("error_msg").style.color="red";
 			return false
 		}

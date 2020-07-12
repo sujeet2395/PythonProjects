@@ -1,19 +1,28 @@
-{% extends 'base.html' %}
+{% extends 'cb_base.html' %}
 {% load static %}
-{% block content %}
-<div class="container mainbox">
-    <p class="maintitle maintitlesize">Creating Confession Box</p>
-    <form id="formUser" method="post" action="/cnfbx/cb_quiz_quest/" onsubmit="return validate('formUser','userName');">
-        {% csrf_token %}
-        <label class="mainlabel mainlabelsize">Enter Your Name :</label>
-        <input id="userName" name="userName" value="{{un}}"><br />
-        <span id="userNameMsg"></span><br />
-        <button class="btn btn-primary btn-lg active" style="margin-top: 15px;" role="button" aria-pressed="true"
-            type="submit">Start</button>
-    </form>
-    {% if is_creator %}
-    <a href='{{user_cnfbox_url}}'>See your previous confession box</a>
-    {% endif %}
+{% block cnfbx %}
+<div class="container-fuild mainbox">
+	<p class="maintitle maintitlesize">Creating Confession Box</p>
+	<img src="{% static '/DareYou/img/friendship.png' %}" alt="friendship" class="rounded" width="130px" height="130Px" />
+	<div class="mb-5"></div>
+	<div class="row">
+		<div class="col-lg-3 col-sm-2"></div>
+		<div class="col-lg-6 col-sm-8">
+		    <form id="formUser" method="post" action="/cnfbx/cb_quiz_quest/" onsubmit="return validate('formUser','userName');">
+		        {% csrf_token %}
+		        <label class="mainlabel mainlabelsize">Enter Your Name : </label>
+		        <input id="userName" name="userName" value="{{un}}"><br/>
+		        <span id="userNameMsg"></span><br />
+		        <div class="mb-3"></div>
+		        <button class="btn btn-primary btn-lg active" role="button" aria-pressed="true" type="submit">Start</button>
+		    </form>
+		    {% if is_creator %}
+		    	<div class="mb-3"></div>
+		    	<h6><a href='{{user_cnfbox_url}}'>See your previous Confession Box</a></h6>
+		    {% endif %}
+	    </div>
+	    <div class="col-lg-3 col-sm-2"></div>
+    </div>
 </div>
 <script type="text/javascript" src="{% static 'DareYou/js/myjs.js' %}"></script>
 {% endblock %}

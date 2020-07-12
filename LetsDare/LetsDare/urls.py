@@ -17,8 +17,12 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
+from ConfessionBox   import views
 
 urlpatterns = [
+    path('', views.homepage, name='homepage'),
+    path('about_us/', views.about_us, name='contact_us'),
+    path('contact_us/', views.contact_us, name='contact_us'),
     path('dareyou/', include('DareYou.urls')),
     path('cnfbx/', include('ConfessionBox.urls')),
     path('admin/', admin.site.urls),

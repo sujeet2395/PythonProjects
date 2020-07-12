@@ -1,29 +1,36 @@
-{% extends 'base.html' %}
+{% extends 'cb_base.html' %}
 {% load static %}
-{% block content %}
-<div class="container mainbox">
+{% block cnfbx %}
+<div class="container-fuild mainbox">
     <div class="maintitle">
         <p class="maintitlesize">Select Questions</p>
-        <p class="mainlabelsize">What your friends know about you {{un}}?</p>
+        <p class="mainlabel mainlabelsize">What your friends know about you {{un}}?</p>
         <span id="error_msg"></span>
     </div>
-
-    <form id="selection_form" method="post" action="/cnfbx/create_quiz/"
-        onsubmit="return validation({{q_dict.items|length}});">
-        {% csrf_token %}
-        {%	for q_id, q_quest in q_dict.items %}
-        <div class="questionbox">
-            <div style="text-align:left;">{{q_id}}<span>.)</span>&nbsp{{q_quest}}</div>
-            <div style="margin-top:50px;"></div>
-            <input type="button" style="background-color:#e7e7e7;" id="s{{q_id}}"
-                onclick="selected({{q_dict.items|length}}, '{{q_id}}')" value='Select' />
-        </div>
-        {% endfor %}
-        <!-- <button type="submit">done</button> -->
-        <input type="submit" style="margin-top:10px;" class="btn btn-primary btn-md active" value="Submit">
-    </form>
-    <div><input class="btn btn-primary btn-md active" style="margin-top:10px;" type="button"
-            onclick="clearstorage({{q_dict.items|length}})" value="Clear Selection" /></div>
+	<div class="row">
+	<div class="col-lg-3 col-sm-2"></div>
+	<div class="col-lg-6 col-sm-8">
+	    <form id="selection_form" method="post" action="/cnfbx/create_quiz/"
+	        onsubmit="return validation({{q_dict.items|length}});">
+	        {% csrf_token %}
+	        <div class="cnfbx_container rounded">
+		        {%	for q_id, q_quest in q_dict.items %}
+			        <div class="questionbox">
+			            <div>{{q_id}}<span>.)</span>&nbsp{{q_quest}}</div>
+			            <div  class="mt-3" style="text-align: center;">
+			            <input type="button" style="background-color:#e7e7e7;" id="s{{q_id}}"
+			                onclick="selected({{q_dict.items|length}}, '{{q_id}}')" value='Select' />
+			            </div>
+			        </div>
+		        {% endfor %}
+	        </div>
+	        <input type="submit" class="btn btn-primary btn-md active mt-3" value="Submit">
+	    </form>
+	    <div><input class="btn btn-primary btn-md active mt-3" type="button"
+	            onclick="clearstorage({{q_dict.items|length}})" value="Clear Selection" /></div>
+    </div>
+    <div class="col-lg-3 col-sm-2"></div>
+    </div>
     <script type="text/javascript" src="{% static 'DareYou/js/myjs.js' %}"></script>
     <script type="text/javascript">
         $(document).ready(clearstorage({{q_dict.items|length}}));

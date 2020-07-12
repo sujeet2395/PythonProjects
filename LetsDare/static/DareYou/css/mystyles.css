@@ -24,15 +24,25 @@
 .mainlabelsize{
 	font-size:1.25rem;
 }
+
+.dare_container{
+	margin: 5px auto;
+	padding: 2px;
+	background-color: #d7eff2;
+	border: 2px solid #70a3cd;
+	width: 60%;
+}
 .questionbox{
-	margin: 5px auto 5px auto;
+	margin: 5px;
 	padding: 10px;
 	background-color: #ffffce;
-	color: black;
-	text-align: center;
-	font-size: 1rem;
-	width: 50%;
 	border: 2px solid #fc8c67;
+	text-align: left;
+}
+.ansbox{
+	background-color:white;
+	padding: 10px;
+	border: 1px solid black;
 }
 .slection_btn{
 	background-color:#e7e7e7;	

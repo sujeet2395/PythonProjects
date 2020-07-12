@@ -17,10 +17,11 @@ from django.contrib import admin
 from django.urls import path, include
 from . import views
 
-#path('share_quiz/<str:quiz_id>/',views.share_quiz,name='share_quiz'),
-
 urlpatterns = [
+    #path('',views.homepage,name='homepage'),
     path('',views.cb_home,name='cb_home'),
+    path('contact_us',views.contact_us,name='contact_us'),
+    path('about_us',views.about_us,name='about_us'),
     path('cb_create/',views.cb_create,name='cb_create'),
     path('cb_quiz_quest/',views.cb_quiz_quest,name='cb_quiz_quest'),
     path('create_quiz/',views.create_quiz,name='create_quiz'),
@@ -32,4 +33,5 @@ urlpatterns = [
     #path('result_apiview/<str:quiz_id>/',views.result_apiview.as_view(),name='result_apiview'),
     path('result_view/<str:quiz_id>/',views.result_view,name='result_view'),
     #path('result_testt/<str:quiz_id>/',views.result_testt,name='result_testt'),
+    #path('share_quiz/<str:quiz_id>/',views.share_quiz,name='share_quiz'),
 ]
