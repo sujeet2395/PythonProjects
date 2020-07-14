@@ -20,8 +20,8 @@ from . import views
 urlpatterns = [
     #path('',views.homepage,name='homepage'),
     path('',views.cb_home,name='cb_home'),
-    path('contact_us',views.contact_us,name='contact_us'),
-    path('about_us',views.about_us,name='about_us'),
+    path('contact_us/',views.contact_us,name='contact_us'),
+    path('about_us/',views.about_us,name='about_us'),
     path('cb_create/',views.cb_create,name='cb_create'),
     path('cb_quiz_quest/',views.cb_quiz_quest,name='cb_quiz_quest'),
     path('create_quiz/',views.create_quiz,name='create_quiz'),
