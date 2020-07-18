@@ -35,3 +35,17 @@ function val_input(ans_id, ans_err_msg_id)
 	}
 	return is_input;
 }
+
+function copyShareLink()
+{
+    var shareLink   =   document.getElementById("linkDiv");
+    var range       =   document.createRange();
+    range.selectNodeContents(shareLink);
+    var sel         =   window.getSelection();
+    sel.removeAllRanges();
+    sel.addRange(range);
+    document.execCommand("copy");
+    var popup = document.getElementById("popupmsg");
+    popup.classList.toggle("show");
+    setTimeout(function(){ popup.className = popup.className.replace("show", ""); }, 3000);
+}

@@ -3,7 +3,7 @@
 {% block cnfbx %}
 <div class="container-fuild mainbox">
 	<p class="maintitle maintitlesize">Played Confession Box</p>
-	<img src="{% static '/DareYou/img/friendship.png' %}" alt="friendship" class="rounded" width="130px"	height="130Px" />
+	<img src="{% static '/DareYou/img/friendship.jpg' %}" alt="friendship" class="rounded" width="130px"	height="130Px" />
 	<div class="mb-5"></div>
 
 	<div class="row">
@@ -30,7 +30,7 @@
 				<div class="mb-3"></div>
 			{% endif %}
 			{% if is_creator %}
-				<h6><a href="/cnfbx/user_cnfbox/{{user_id}}/">See your confession box</a></h6>
+				<h6><a href="/cnfbx/user_cnfbox/{{user_alias_id}}/">See your confession box</a></h6>
 			{% endif %}
 		</div>
 		<div class="col-lg-3 col-sm-2"></div>

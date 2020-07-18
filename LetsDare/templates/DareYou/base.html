@@ -5,11 +5,11 @@
 <meta charset="ISO-8859-1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Lets Dare</title>
-<link rel="stylesheet" type="text/css" href="{% static 'DareYou/css/css_bootstrap/bootstrap.css' %}"/>
+<link rel="shortcut icon" href="{% static 'DareYou/img/letsdare.ico' %}" type="image/x-icon" />
+<link rel="stylesheet" type="text/css" href="{% static 'DareYou/css/css_bootstrap/bootstrap.min.css' %}"/>
 <link rel="stylesheet" type="text/css" href="{% static 'DareYou/css/mystyles.css' %}"/>
-
 <script type="text/javascript" src="{% static 'DareYou/js/jquery.js' %}"></script>
-<script type="text/javascript" src="{% static 'DareYou/js/js_bootstrap/bootstrap.js' %}"></script>
+<script type="text/javascript" src="{% static 'DareYou/js/js_bootstrap/bootstrap.min.js' %}"></script>
 </head>
 <body>
 <!--Main Navigation-->
@@ -50,8 +50,10 @@
  <script type="text/javascript">
        $(document).ready(function() {
 		// get current URL path and assign 'active' class
-		var pathname = window.location.pathname;
-		$('nav div ul li a[href="'+pathname+'"]').parent().addClass('active');
+		var pathname_f = window.location.pathname;
+		var pathname_w=pathname_f.split("/")
+		var pathname_curr=pathname_f.substring(0,pathname_w[1].length+2)
+		$('nav div ul li a[href="'+pathname_curr+'"]').parent().addClass('active');
 	})
 </script>
 </body>

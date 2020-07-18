@@ -5,6 +5,8 @@ import json
 # Create your models here.
 class User(models.Model):
     user_name=models.CharField(max_length=100)
+    alias_id=models.CharField(max_length=10, unique=True, null=False, default='defaul')
+    
     def str(self):
         return self.user_name
     def __repr__(self):

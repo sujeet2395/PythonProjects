@@ -3,7 +3,7 @@
 {% block dareyou %}
 <div class="container mainbox">
 	<p class="maintitle maintitlesize">Creating Dare</p>
-	<img src="{% static '/DareYou/img/friendship.png' %}" alt="friendship" class="rounded" width="130px" height="130Px" />
+	<img src="{% static '/DareYou/img/friendship.jpg' %}" alt="friendship" class="rounded" width="130px" height="130Px" />
 	<div class="mb-5"></div>
 	<form id="formUser" method="post" action="/dareyou/select_un/" onsubmit="return validate('formUser','userName');">
 		{% csrf_token %}
