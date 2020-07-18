@@ -1,12 +1,3 @@
 /.metadata/
-SetupDemo
-RestFrameworkBasic
-Webdemo
-pics
-PythonProjects
-*.min.css
-*.map
-*.min.js
-.project
-.pydevproject
-migrations
+*__pycache__*
+.pydevprojecs

@@ -95,9 +95,9 @@ class DareSharedGenericAPIView(generics.GenericAPIView, mixins.ListModelMixin, m
     serializer_class=DareSharedSerializers
     queryset=DareShared.objects.all()
     lookup_field='id'
-    #authentication_classes=[SessionAuthentication, BasicAuthentication]
+    authentication_classes=[SessionAuthentication, BasicAuthentication]
     #authentication_classes=[TokenAuthentication]
-    #permission_classes=[IsAuthenticated]
+    permission_classes=[IsAuthenticated]
     def get(self, request, id=None):
         if id:
             return self.retrieve(request, id)

@@ -18,7 +18,6 @@ from django.urls import path, include
 from . import views
 
 urlpatterns = [
-    #path('',views.homepage,name='homepage'),
     path('',views.cb_home,name='cb_home'),
     path('contact_us/',views.contact_us,name='contact_us'),
     path('about_us/',views.about_us,name='about_us'),
@@ -30,8 +29,6 @@ urlpatterns = [
     path('play_q/<str:quiz_id>/',views.player,name='player'),
     path('play_quiz/<str:quiz_id>/',views.play_quiz,name='play_quiz'),
     path('result/<str:quiz_id>/',views.result,name='result'),
-    #path('result_apiview/<str:quiz_id>/',views.result_apiview.as_view(),name='result_apiview'),
     path('result_view/<str:quiz_id>/',views.result_view,name='result_view'),
-    #path('result_testt/<str:quiz_id>/',views.result_testt,name='result_testt'),
-    #path('share_quiz/<str:quiz_id>/',views.share_quiz,name='share_quiz'),
+
 ]
